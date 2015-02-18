@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "typedef": "~0.13.2",
-    "xmlrpc": "Growmies/xmlrpc",
+    "xmlrpc": "Growmies/node-xmlrpc",
     "underscore": "~1.5.1",
     "q": "~0.9.6",
     "inflection": "~1.2.6"
