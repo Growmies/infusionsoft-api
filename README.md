@@ -1,10 +1,11 @@
 # Infusionsoft API
 
+
+
 A promise-driven, fluent-style Node.js wrapper for the XML-RPC [Infusionsoft API](http://help.infusionsoft.com/developers/api-basics).
 
-Write badass Infusionsoft apps on the server that are fully and natively asynchronous.
-
-It's pretty dope.
+##Changes from original repo
+The table names are SINGULAR.  infusionsoft.Contact NOT infusionsoft.Contacts
 
 ## Usage
 
@@ -21,7 +22,7 @@ var api = require('infusionsoft-api');
 
 var infusionsoft = new api.DataContext('myapp', 'MY_API_KEY');
 
-infusionsoft.Contacts
+infusionsoft.Contact
     .where(Contact.FirstName, 'Brandon')
     .like(Contact.LastName, 'V%')
     .select(Contact.Id, Contact.Email)
@@ -73,7 +74,7 @@ var infusionsoft = new api.DataContext('myAppName', 'MY_API_KEY');
 ### Get monthly revenue from a particular month
 
 ```javascript
-infusionsoft.Payments
+infusionsoft.Payment
     .like(Payment.PayDate, '2013-06%')
     .sum(function(x) { return x.PayAmt; })
     .done(function(total) {
@@ -104,7 +105,7 @@ infusionsoft.DataService
 Uses [underscore](http://underscorejs.org/).
 
 ```javascript
-infusionsoft.Invoices
+infusionsoft.Invoice
     .like(Invoice.DateCreated, '2013-08%')
     .groupBy(function(x) { return x.ProductSold; })
     .done(function(result) {
@@ -140,7 +141,7 @@ Q.spread([products, invoices], function(products, invoices) {
 ### From an email address, get a contact's tags
 
 ```javascript
-sdk.Contacts
+sdk.Contact
     .where(Contact.Email, 'some@email.com')
     .first()
     .then(function(contact) {
